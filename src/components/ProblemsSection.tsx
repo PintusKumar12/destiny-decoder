@@ -31,7 +31,10 @@ const problems = [
 
 const ProblemsSection = () => {
   return (
-    <section id="problems" className="py-20 sm:py-28 bg-mystic-gradient relative">
+    <section id="problems" className="py-20 sm:py-28 bg-mystic-gradient relative overflow-hidden">
+      {/* Nebula effects */}
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/5 blur-[120px]" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-accent/5 blur-[100px]" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

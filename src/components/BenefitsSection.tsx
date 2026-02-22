@@ -11,7 +11,7 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section id="benefits" className="py-20 sm:py-28 relative">
+    <section id="benefits" className="py-20 sm:py-28 relative overflow-hidden nebula-glow">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
