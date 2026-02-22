@@ -18,23 +18,47 @@ const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
-      <div className="absolute inset-0 bg-background/60" />
-      <div className="absolute inset-0 bg-hero-gradient opacity-70" />
+      <div className="absolute inset-0 bg-background/50" />
+      <div className="absolute inset-0 bg-hero-gradient opacity-80" />
 
-      {/* Floating orbs */}
-      <div className="absolute top-[15%] left-[8%] w-20 h-20 rounded-full bg-primary/8 blur-2xl animate-float" />
-      <div className="absolute bottom-[25%] left-[5%] w-32 h-32 rounded-full bg-accent/6 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-      <div className="absolute top-[30%] right-[15%] w-16 h-16 rounded-full bg-glow-soft/10 blur-xl animate-float" style={{ animationDelay: "3s" }} />
+      {/* Large planet/moon orbs like reference */}
+      <div className="absolute top-[5%] left-[3%] w-40 h-40 sm:w-56 sm:h-56 rounded-full bg-gradient-to-br from-[hsl(275,60%,18%)] to-[hsl(270,40%,8%)] opacity-50 blur-[2px]" />
+      <div className="absolute bottom-[10%] right-[2%] w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-gradient-to-br from-[hsl(258,50%,20%)] to-[hsl(270,30%,6%)] opacity-30 blur-[1px]" />
+      <div className="absolute top-[60%] left-[15%] w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(258,60%,25%)] to-[hsl(270,40%,10%)] opacity-25" />
 
-      {/* Stars decoration */}
-      {[...Array(30)].map((_, i) => (
+      {/* Nebula glow patches */}
+      <div className="absolute top-[30%] left-[40%] w-[500px] h-[300px] rounded-full bg-[hsl(275,100%,20%)] opacity-[0.07] blur-[100px]" />
+      <div className="absolute bottom-[20%] left-[10%] w-[400px] h-[250px] rounded-full bg-[hsl(258,100%,25%)] opacity-[0.06] blur-[80px]" />
+
+      {/* Dense star field */}
+      {[...Array(60)].map((_, i) => {
+        const size = Math.random() > 0.85 ? 2 : 1;
+        return (
+          <div
+            key={i}
+            className="absolute rounded-full bg-foreground/60 animate-twinkle"
+            style={{
+              width: `${size}px`,
+              height: `${size}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${3 + Math.random() * 3}s`,
+            }}
+          />
+        );
+      })}
+
+      {/* Brighter accent stars */}
+      {[...Array(8)].map((_, i) => (
         <div
-          key={i}
-          className="absolute w-1 h-1 rounded-full bg-foreground/40 animate-twinkle"
+          key={`bright-${i}`}
+          className="absolute w-1 h-1 rounded-full bg-foreground animate-twinkle"
           style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
+            top: `${10 + Math.random() * 80}%`,
+            left: `${5 + Math.random() * 90}%`,
             animationDelay: `${Math.random() * 4}s`,
+            boxShadow: "0 0 4px 1px hsl(0 0% 100% / 0.5)",
           }}
         />
       ))}
