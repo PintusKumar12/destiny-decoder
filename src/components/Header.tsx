@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 interface HeaderProps {
   onOpenModal: () => void;
@@ -33,11 +33,8 @@ const Header = ({ onOpenModal }: HeaderProps) => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#hero" className="flex items-center gap-2">
-            <Sparkles className="w-6 h-6 text-primary" />
-            <span className="text-lg md:text-xl font-display font-bold text-foreground">
-              Destiny<span className="text-gradient">Numbers</span>
-            </span>
+          <a href="#hero" className="flex items-center">
+            <img src="/logo.png.png" alt="Logo" className="h-8 md:h-10 w-auto" />
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
